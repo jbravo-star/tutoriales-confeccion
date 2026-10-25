@@ -1,0 +1,151 @@
+/* Academia ChileMáquina — hoja de estilos (mobile-first) */
+:root {
+  --navy: #0f2742;
+  --navy-2: #173a5e;
+  --gold: #e8b53a;
+  --paper: #f7f5f0;
+  --red: #d1495b;
+  --teal: #1f8a8a;
+  --ink: #1b2430;
+  --muted: #5a6573;
+  --line: #e2ddd2;
+  --white: #ffffff;
+  --radius: 12px;
+  --gutter: 16px;
+  --max: 1120px;
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  overflow-wrap: break-word;
+}
+img, video { max-width: 100%; display: block; }
+a { color: var(--teal); }
+a:hover { color: var(--navy); }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: var(--gutter); top: 8px; background: var(--white); padding: 8px 12px; z-index: 10; }
+
+/* Encabezado */
+.site-header { background: var(--navy); color: var(--white); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
+.brand { color: var(--white); text-decoration: none; font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; }
+.brand span { color: var(--gold); }
+.brand small { display: block; font-weight: 500; font-size: 0.75rem; color: #c9d3df; letter-spacing: 0.04em; text-transform: uppercase; }
+.site-nav { display: flex; gap: 16px; flex-wrap: wrap; }
+.site-nav a { color: var(--white); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.site-nav a:hover { color: var(--gold); }
+
+/* Hero */
+.hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); color: var(--white); padding: 40px 0 48px; }
+.hero .eyebrow { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 10px; border-radius: 999px; }
+.hero h1 { font-size: clamp(1.75rem, 6vw, 2.75rem); line-height: 1.15; margin: 14px 0 12px; letter-spacing: -0.02em; }
+.hero h1 .dash { color: var(--gold); }
+.hero p { max-width: 640px; color: #dbe3ec; font-size: 1.05rem; margin: 0; }
+
+/* Secciones */
+main { padding: 32px 0 48px; }
+.section-title { font-size: 1.4rem; color: var(--navy); margin: 0 0 16px; letter-spacing: -0.01em; }
+
+/* Tarjetas */
+.grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 1px 2px rgba(15,39,66,.06); transition: transform .15s ease, box-shadow .15s ease; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(15,39,66,.12); }
+.card-thumb { position: relative; aspect-ratio: 16 / 9; background: var(--navy); }
+.card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.badge-time { position: absolute; right: 10px; bottom: 10px; background: rgba(15,39,66,.9); color: var(--white); font-size: 0.8rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+.card-body { padding: 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card-body h3 { margin: 0; font-size: 1.15rem; line-height: 1.3; color: var(--navy); }
+.card-body .meta { margin: 0; font-size: 0.9rem; color: var(--muted); }
+.card-body .meta strong { color: var(--ink); }
+.card-body .btn { margin-top: auto; align-self: flex-start; }
+
+/* Botones */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; border: 2px solid transparent; cursor: pointer; text-align: center; }
+.btn-primary { background: var(--navy); color: var(--white); }
+.btn-primary:hover { background: var(--navy-2); color: var(--white); }
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-gold:hover { background: #f0c45a; color: var(--navy); }
+.btn-wa { background: var(--teal); color: var(--white); }
+.btn-wa:hover { background: #197373; color: var(--white); }
+.btn-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
+.btn-outline:hover { background: var(--navy); color: var(--white); }
+.btn-lg { min-height: 52px; padding: 14px 22px; font-size: 1.05rem; width: 100%; }
+
+/* Página de tutorial */
+.breadcrumb { font-size: 0.85rem; color: #c9d3df; margin: 0 0 8px; }
+.breadcrumb a { color: var(--gold); }
+.tutorial-hero { padding: 28px 0 32px; }
+.tutorial-hero h1 { font-size: clamp(1.6rem, 5.5vw, 2.4rem); margin: 6px 0 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding: 0; list-style: none; }
+.chips li { background: rgba(255,255,255,.12); color: var(--white); font-size: 0.85rem; padding: 4px 10px; border-radius: 999px; }
+.chips li strong { color: var(--gold); }
+
+.video-box { background: #000; border-radius: var(--radius); overflow: hidden; box-shadow: 0 8px 28px rgba(15,39,66,.18); }
+.video-box video { width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
+
+.download { margin: 20px 0 8px; }
+.download .note { font-size: 0.85rem; color: var(--muted); margin: 8px 0 0; }
+
+.layout { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
+.panel { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.panel h2 { font-size: 1.2rem; color: var(--navy); margin: 0 0 12px; }
+.panel ul { margin: 0; padding-left: 20px; }
+.panel li + li { margin-top: 6px; }
+
+.steps { list-style: none; counter-reset: paso; margin: 0; padding: 0; }
+.steps li { counter-increment: paso; position: relative; padding: 0 0 18px 48px; }
+.steps li:last-child { padding-bottom: 0; }
+.steps li::before { content: counter(paso); position: absolute; left: 0; top: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--gold); font-weight: 800; display: grid; place-items: center; }
+.steps h3 { margin: 4px 0 4px; font-size: 1.02rem; color: var(--navy); }
+.steps p { margin: 0; color: var(--ink); }
+
+.measures { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 0; }
+.measures div { background: var(--paper); border-left: 4px solid var(--gold); border-radius: 8px; padding: 10px 12px; }
+.measures dt { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+.measures dd { margin: 2px 0 0; }
+
+.products { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.product { display: block; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; text-decoration: none; color: var(--ink); }
+.product:hover { border-color: var(--teal); color: var(--ink); }
+.product strong { display: block; color: var(--navy); }
+.product span { font-size: 0.85rem; color: var(--teal); font-weight: 600; }
+
+.contact { background: var(--navy); color: var(--white); border-radius: var(--radius); padding: 24px 20px; margin-top: 32px; }
+.contact h2 { margin: 0 0 6px; font-size: 1.25rem; }
+.contact p { margin: 0 0 16px; color: #dbe3ec; }
+
+/* Pie */
+.site-footer { background: var(--navy); color: #c9d3df; font-size: 0.9rem; padding: 24px 0; }
+.site-footer a { color: var(--gold); }
+.site-footer p { margin: 4px 0; }
+
+/* 404 */
+.notfound { text-align: center; padding: 64px 0; }
+.notfound h1 { font-size: 3rem; color: var(--red); margin: 0; }
+
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .measures { grid-template-columns: repeat(3, 1fr); }
+  .products { grid-template-columns: repeat(2, 1fr); }
+  .btn-lg { width: auto; }
+}
+@media (min-width: 960px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+  .hero { padding: 64px 0 72px; }
+  .layout { grid-template-columns: 1fr 2fr; align-items: start; }
+  .contact { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .contact p { margin: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .card, .card:hover { transition: none; transform: none; } }

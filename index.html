@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academia ChileMáquina — Tutoriales de confección</title>
+  <meta name="description" content="Tutoriales de confección en video y PDF de ChileMáquina: aprende a coser una polera con overlock y colleretera, una capa de Halloween con capucha y más.">
+  <link rel="canonical" href="https://tutoriales-confeccion.chilemaquina.pro/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Academia ChileMáquina">
+  <meta property="og:title" content="Academia ChileMáquina — Tutoriales de confección">
+  <meta property="og:description" content="Tutoriales de confección en video y PDF descargable, paso a paso.">
+  <meta property="og:url" content="https://tutoriales-confeccion.chilemaquina.pro/">
+  <meta property="og:image" content="https://tutoriales-confeccion.chilemaquina.pro/assets/polera.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f2742">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./">Chile<span>Máquina</span><small>Academia</small></a>
+      <nav class="site-nav" aria-label="Principal">
+        <a href="#tutoriales">Tutoriales</a>
+        <a href="https://chilemaquina.pro">Tienda</a>
+        <a href="https://wa.me/56945494865">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Tutoriales gratuitos</span>
+      <h1>Academia ChileMáquina <span class="dash">—</span> Tutoriales de confección</h1>
+      <p>Aprende a confeccionar prendas paso a paso con nuestros videos. Cada tutorial incluye la lista de materiales, las instrucciones detalladas y un PDF descargable para tenerlo siempre a mano junto a tu máquina.</p>
+    </div>
+  </section>
+
+  <main id="contenido">
+    <div class="wrap">
+      <h2 class="section-title" id="tutoriales">Tutoriales disponibles</h2>
+      <div class="grid" id="grid-tutoriales">
+        <noscript>
+          <p><a href="polera/">Cómo hacer una polera con overlock y colleretera</a></p>
+          <p><a href="capa-halloween/">Capa de Halloween con capucha</a></p>
+        </noscript>
+      </div>
+
+      <section class="contact" aria-labelledby="contacto">
+        <div>
+          <h2 id="contacto">¿Tienes dudas sobre tu máquina o tu proyecto?</h2>
+          <p>Escríbenos por WhatsApp al +56 9 4549 4865 y te ayudamos.</p>
+        </div>
+        <a class="btn btn-gold" href="https://wa.me/56945494865">Escribir por WhatsApp</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Academia ChileMáquina · <a href="https://chilemaquina.pro">chilemaquina.pro</a></p>
+      <p>WhatsApp: <a href="https://wa.me/56945494865">+56 9 4549 4865</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/tutoriales.js"></script>
+  <script>
+    (function () {
+      var grid = document.getElementById("grid-tutoriales");
+      var lista = window.TUTORIALES || [];
+      function el(tag, cls, text) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text) n.textContent = text;
+        return n;
+      }
+      lista.forEach(function (t) {
+        var url = t.slug + "/";
+        var card = el("article", "card");
+        var thumb = el("a", "card-thumb");
+        thumb.href = url;
+        thumb.setAttribute("aria-hidden", "true");
+        thumb.tabIndex = -1;
+        var img = el("img");
+        img.src = t.miniatura;
+        img.alt = "";
+        img.loading = "lazy";
+        img.width = 960; img.height = 540;
+        thumb.appendChild(img);
+        thumb.appendChild(el("span", "badge-time", t.duracion));
+        var body = el("div", "card-body");
+        body.appendChild(el("h3", null, t.titulo));
+        var meta = el("p", "meta");
+        meta.appendChild(el("strong", null, "Máquinas: "));
+        meta.appendChild(document.createTextNode(t.maquinas));
+        body.appendChild(meta);
+        var dur = el("p", "meta");
+        dur.appendChild(el("strong", null, "Duración: "));
+        dur.appendChild(document.createTextNode(t.duracion));
+        body.appendChild(dur);
+        if (t.resumen) body.appendChild(el("p", "meta", t.resumen));
+        var btn = el("a", "btn btn-primary", "Ver tutorial");
+        btn.href = url;
+        btn.setAttribute("aria-label", "Ver tutorial: " + t.titulo);
+        body.appendChild(btn);
+        card.appendChild(thumb);
+        card.appendChild(body);
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+</body>
+</html>
