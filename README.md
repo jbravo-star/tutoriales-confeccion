@@ -15,7 +15,6 @@ Sitio estático (HTML, CSS y un poco de JavaScript, sin compilación) para GitHu
 ├── sitemap.xml
 ├── assets/
 │   ├── style.css             # estilos de marca
-│   ├── tutoriales.js         # LISTA DE TUTORIALES (alimenta la portada)
 │   ├── polera.jpg            # miniaturas (960 px de ancho)
 │   └── capa-halloween.jpg
 ├── polera/
@@ -76,12 +75,14 @@ Sitio estático (HTML, CSS y un poco de JavaScript, sin compilación) para GitHu
 
 1. Crea una carpeta sin tildes ni espacios (ej.: `falda-plisada/`).
 2. Copia `polera/index.html` dentro y cambia título, descripción, etiquetas Open Graph, video, PDF,
-   materiales, pasos y productos relacionados.
+   materiales, pasos, productos relacionados (con el enlace al producto en chilemaquina.pro) y el
+   bloque `application/ld+json` (HowTo + VideoObject: nombre, duración ISO como `PT5M20S`, pasos).
 3. Agrega el MP4 (menos de 100 MB) y el PDF a esa carpeta.
 4. Guarda una miniatura de 960 px de ancho en `assets/` (ej.: `assets/falda-plisada.jpg`).
-5. Agrega un objeto al arreglo de `assets/tutoriales.js` (las instrucciones están en el comentario
-   al inicio del archivo). La tarjeta aparece sola en la portada.
-6. Agrega la URL nueva a `sitemap.xml`.
+5. En `index.html` duplica un `<article class="card">` y cambia enlace, miniatura, título, máquinas,
+   duración y resumen. Las tarjetas van escritas en el HTML (no con JavaScript) para que Google y
+   las IA las lean. Agrega también el tutorial al `ItemList` del bloque `application/ld+json`.
+6. Agrega la URL nueva a `sitemap.xml` y una línea en `llms.txt`.
 7. Sube los cambios a `main`; GitHub Pages republica el sitio en uno o dos minutos.
 
 ## Contacto
