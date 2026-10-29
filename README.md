@@ -23,8 +23,8 @@ en GitHub. No edites a mano los archivos marcados como *generado*: se sobrescrib
 │   ├── site.js               # capítulos y ?t= del video (a mano, mejora progresiva)
 │   ├── polera.jpg            # miniaturas 960 × 540
 │   ├── capa-halloween.jpg
-
-└── <tutorial>/               # polera/, capa-halloween/
+│   └── pantalon-buzo.jpg
+└── <tutorial>/               # polera/, capa-halloween/, pantalon-de-buzo-talla-l/
     ├── index.html            # página del tutorial (generado)
     ├── index.md              # versión Markdown con pasos y transcripción (generado)
     ├── subtitulos-es.vtt     # subtítulos (generado desde timeline.json)
