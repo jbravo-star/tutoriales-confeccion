@@ -25,7 +25,7 @@ window.TUTORIALES = [
   {
     slug: "polera",
     titulo: "Cómo hacer una polera con overlock y colleretera",
-    duracion: "6:35",
+    duracion: "6:05",
     maquinas: "Overlock BSQ 3250 + Colleretera Brother CV3440",
     miniatura: "assets/polera.jpg",
     resumen: "Una polera completa de principio a fin con el Pack Poleras en Casa: hombros, cuello, mangas, costados y bastas."
@@ -33,7 +33,7 @@ window.TUTORIALES = [
   {
     slug: "capa-halloween",
     titulo: "Capa de Halloween con capucha",
-    duracion: "4:58",
+    duracion: "4:36",
     maquinas: "Máquina de coser doméstica (overlock opcional)",
     miniatura: "assets/capa-halloween.jpg",
     resumen: "Capa de círculo completo con capucha: medidas, corte, armado, terminaciones y cierre."
