@@ -1,0 +1,25 @@
+# Academia ChileMáquina — Tutoriales de confección
+
+> Tutoriales de confección gratuitos en español (Chile) de ChileMáquina: cada uno incluye video paso a paso con subtítulos, transcripción, lista de materiales y máquinas, y un PDF descargable.
+
+Academia de ChileMáquina (https://chilemaquina.pro). Contacto por WhatsApp: +56 9 4549 4865. Idioma: español de Chile.
+
+## Tutoriales
+
+- [Cómo hacer una polera con overlock y colleretera](https://tutoriales-confeccion.chilemaquina.pro/polera/): Tutorial en video y PDF: cose una polera de tela de punto con la Overlock BSQ 3250 y la Colleretera Brother CV3440 (Pack Poleras en Casa), en 7 pasos. Video de 6:05. Máquinas: Overlock BSQ 3250 + Colleretera Brother CV3440.
+- [Capa de Halloween con capucha](https://tutoriales-confeccion.chilemaquina.pro/capa-halloween/): Tutorial en video y PDF: confecciona una capa de Halloween de círculo completo con capucha usando una máquina de coser doméstica. Medidas, corte y cierre. Video de 4:36. Máquinas: Máquina de coser doméstica (overlock opcional).
+
+## Versiones en Markdown (pasos completos y transcripción)
+
+- [Cómo hacer una polera con overlock y colleretera (Markdown)](https://tutoriales-confeccion.chilemaquina.pro/polera/index.md)
+- [Capa de Halloween con capucha (Markdown)](https://tutoriales-confeccion.chilemaquina.pro/capa-halloween/index.md)
+
+## PDF descargables
+
+- [PDF: Cómo hacer una polera con overlock y colleretera](https://tutoriales-confeccion.chilemaquina.pro/polera/Tutorial_Polera_ChileMaquina.pdf)
+- [PDF: Capa de Halloween con capucha](https://tutoriales-confeccion.chilemaquina.pro/capa-halloween/Tutorial_Capa_Halloween_ChileMaquina.pdf)
+
+## Optional
+
+- [Tienda ChileMáquina](https://chilemaquina.pro): tienda en línea de ChileMáquina.
+- [Mapa del sitio](https://tutoriales-confeccion.chilemaquina.pro/sitemap.xml)
