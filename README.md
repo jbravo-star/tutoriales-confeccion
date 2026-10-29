@@ -5,26 +5,32 @@ Sitio estático (HTML, CSS y un poco de JavaScript, sin compilación) para GitHu
 
 ## Estructura
 
+Las páginas se **generan** con `build.py` (carpeta `sitegen/`, fuera de este sitio) a partir de un
+solo archivo de datos, `sitegen/tutoriales.json`. GitHub Pages solo sirve archivos: no hay compilación
+en GitHub. No edites a mano los archivos marcados como *generado*: se sobrescriben en cada ejecución.
+
 ```
 .
 ├── CNAME                     # dominio personalizado (no modificar)
 ├── .nojekyll                 # evita que GitHub procese el sitio con Jekyll
-├── index.html                # portada con las tarjetas de tutoriales
-├── 404.html                  # página de error
-├── robots.txt
-├── sitemap.xml
+├── index.html                # portada con las tarjetas (generado, HTML estático)
+├── 404.html                  # página de error (generado)
+├── robots.txt                # permite buscadores y bots de IA (generado)
+├── sitemap.xml               # con extensión de video de Google (generado)
+├── llms.txt                  # índice para asistentes de IA (generado)
 ├── assets/
-│   ├── style.css             # estilos de marca
-│   ├── polera.jpg            # miniaturas (960 px de ancho)
-│   └── capa-halloween.jpg
-├── polera/
-│   ├── index.html
-│   ├── tutorial-polera.mp4
-│   └── Tutorial_Polera_ChileMaquina.pdf
-└── capa-halloween/
-    ├── index.html
-    ├── tutorial-capa-halloween.mp4
-    └── Tutorial_Capa_Halloween_ChileMaquina.pdf
+│   ├── style.css             # estilos de marca (a mano)
+│   ├── site.js               # capítulos y ?t= del video (a mano, mejora progresiva)
+│   ├── polera.jpg            # miniaturas 960 × 540
+│   ├── capa-halloween.jpg
+│   └── pantalon-buzo.jpg
+└── <tutorial>/               # polera/, capa-halloween/, pantalon-de-buzo-talla-l/
+    ├── index.html            # página del tutorial (generado)
+    ├── index.md              # versión Markdown con pasos y transcripción (generado)
+    ├── subtitulos-es.vtt     # subtítulos (generado desde timeline.json)
+    ├── transcripcion.txt     # transcripción (generado)
+    ├── <video>.mp4
+    └── <PDF>.pdf
 ```
 
 ## Publicar en GitHub Pages (paso a paso)
@@ -71,19 +77,57 @@ Sitio estático (HTML, CSS y un poco de JavaScript, sin compilación) para GitHu
 8. **Comprobar.** Abre https://tutoriales-confeccion.chilemaquina.pro y revisa que se vean los
    videos y que los botones de PDF descarguen el archivo.
 
-## Agregar un tutorial nuevo
+## Agregar un tutorial nuevo (con build.py)
 
-1. Crea una carpeta sin tildes ni espacios (ej.: `falda-plisada/`).
-2. Copia `polera/index.html` dentro y cambia título, descripción, etiquetas Open Graph, video, PDF,
-   materiales, pasos, productos relacionados (con el enlace al producto en chilemaquina.pro) y el
-   bloque `application/ld+json` (HowTo + VideoObject: nombre, duración ISO como `PT5M20S`, pasos).
-3. Agrega el MP4 (menos de 100 MB) y el PDF a esa carpeta.
-4. Guarda una miniatura de 960 px de ancho en `assets/` (ej.: `assets/falda-plisada.jpg`).
-5. En `index.html` duplica un `<article class="card">` y cambia enlace, miniatura, título, máquinas,
-   duración y resumen. Las tarjetas van escritas en el HTML (no con JavaScript) para que Google y
-   las IA las lean. Agrega también el tutorial al `ItemList` del bloque `application/ld+json`.
-6. Agrega la URL nueva a `sitemap.xml` y una línea en `llms.txt`.
-7. Sube los cambios a `main`; GitHub Pages republica el sitio en uno o dos minutos.
+Requisitos: Python 3 (sin librerías extra).
+
+1. Crea la carpeta del tutorial dentro del sitio, sin tildes ni espacios (ej.: `falda-plisada/`),
+   y copia ahí el MP4 (menos de 100 MB) y el PDF.
+2. Guarda la miniatura de 960 × 540 px en `assets/` (ej.: `assets/falda-plisada.jpg`).
+3. En `sitegen/tutoriales.json`, copia un bloque de `"tutoriales"` y cambia: `slug` (nombre de la
+   carpeta), `titulo` (etiqueta `<title>`), `h1`, `nombreCorto` (migas de pan), `descripcion`
+   (máx. 155 caracteres; el script se detiene si es más larga), `ogDescripcion`, `intro`, `resumen`,
+   `palabrasClave`, `fechaPublicacion` (ej.: `2026-11-05T00:00:00-03:00`), `fechaModificacion`,
+   `maquinas`, `materiales`, `medidas`, `preparacion`, `pasos`, `faq`, `productos`, `fuentes`,
+   `pdf`, `video`, `miniatura`, `miniaturaAlt` y `timeline` (ruta al `timeline.json` del video,
+   relativa a `sitegen/`). El orden del arreglo es el orden de las tarjetas.
+   - `duracion` puede quedar en `null`: se calcula sola desde el `timeline.json`.
+   - Si el `timeline.json` todavía no existe, el script usa `guion` (texto sin tiempos) y omite
+     capítulos, subtítulos y *Clips*, sin fallar.
+4. Ejecuta:
+   ```
+   cd sitegen
+   python3 build.py                 # escribe en ../sitio
+   python3 build.py --out OTRA/RUTA # o en otra carpeta
+   ```
+   El script avisa (`AVISO:`) si falta un video, PDF, miniatura o timeline.
+5. Opcional: `python3 verify.py` revisa JSON-LD, enlaces locales, sitemap, subtítulos y abre
+   cada página con Playwright a 1280 y 390 px.
+6. Sube los cambios a `main`; GitHub Pages republica el sitio en uno o dos minutos.
+
+## Checklist SEO después de publicar
+
+1. **Google Search Console** (https://search.google.com/search-console): agrega la propiedad
+   `https://tutoriales-confeccion.chilemaquina.pro/` (o el dominio `chilemaquina.pro`), verifica con
+   un registro TXT en el DNS y en **Sitemaps** envía `sitemap.xml`.
+2. **Bing Webmaster Tools** (https://www.bing.com/webmasters): agrega el sitio (puedes importarlo
+   desde Search Console) y envía el mismo `sitemap.xml`.
+3. **robots.txt por bot**: comprueba que cada bot recibe `200`:
+   ```
+   for ua in Googlebot Bingbot OAI-SearchBot ChatGPT-User GPTBot Claude-SearchBot Claude-User ClaudeBot PerplexityBot Perplexity-User; do
+     printf "%-18s" "$ua"; curl -s -o /dev/null -w "%{http_code}\n" -A "$ua" https://tutoriales-confeccion.chilemaquina.pro/polera/
+   done
+   curl -s https://tutoriales-confeccion.chilemaquina.pro/robots.txt
+   curl -s https://tutoriales-confeccion.chilemaquina.pro/llms.txt
+   ```
+   Si usas Cloudflare u otro CDN, revisa que no bloquee bots de IA (opción "Block AI bots").
+4. **Rich Results Test** (https://search.google.com/test/rich-results): prueba cada página de
+   tutorial; debe detectar *Video* (con momentos clave), *Breadcrumb* y FAQ/HowTo. Revisa también
+   https://validator.schema.org.
+5. **Solicitar indexación**: en Search Console, **Inspección de URLs** → pega la URL de cada
+   tutorial → **Solicitar indexación**. Repite cuando publiques un tutorial nuevo.
+6. Después de unos días, revisa en Search Console **Videos** e **Páginas** (indexación de videos y
+   errores).
 
 ## Contacto
 

@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://tutoriales-confeccion.chilemaquina.pro/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://tutoriales-confeccion.chilemaquina.pro/polera/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://tutoriales-confeccion.chilemaquina.pro/assets/polera.jpg</video:thumbnail_loc>
+      <video:title>Cómo hacer una polera con overlock y colleretera</video:title>
+      <video:description>Tutorial en video y PDF: cose una polera de tela de punto con la Overlock BSQ 3250 y la Colleretera Brother CV3440 (Pack Poleras en Casa), en 7 pasos.</video:description>
+      <video:content_loc>https://tutoriales-confeccion.chilemaquina.pro/polera/tutorial-polera.mp4</video:content_loc>
+      <video:duration>365</video:duration>
+      <video:publication_date>2026-10-25T00:00:00-03:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://tutoriales-confeccion.chilemaquina.pro/pantalon-de-buzo-talla-l/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://tutoriales-confeccion.chilemaquina.pro/assets/pantalon-buzo.jpg</video:thumbnail_loc>
+      <video:title>Cómo hacer un pantalón de buzo talla L con overlock y colleretera</video:title>
+      <video:description>Tutorial en video y PDF: pantalón de buzo talla L con overlock y colleretera. Bolsillos, pretina con elástico y cordón, y puños de rib en 7 pasos.</video:description>
+      <video:content_loc>https://tutoriales-confeccion.chilemaquina.pro/pantalon-de-buzo-talla-l/tutorial-pantalon-buzo.mp4</video:content_loc>
+      <video:duration>305</video:duration>
+      <video:publication_date>2026-10-29T00:00:00-03:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
   <url>
     <loc>https://tutoriales-confeccion.chilemaquina.pro/capa-halloween/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://tutoriales-confeccion.chilemaquina.pro/assets/capa-halloween.jpg</video:thumbnail_loc>
+      <video:title>Capa de Halloween con capucha</video:title>
+      <video:description>Tutorial en video y PDF: confecciona una capa de Halloween de círculo completo con capucha usando una máquina de coser doméstica. Medidas, corte y cierre.</video:description>
+      <video:content_loc>https://tutoriales-confeccion.chilemaquina.pro/capa-halloween/tutorial-capa-halloween.mp4</video:content_loc>
+      <video:duration>276</video:duration>
+      <video:publication_date>2026-10-25T00:00:00-03:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
 </urlset>
